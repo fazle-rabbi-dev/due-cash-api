@@ -113,7 +113,7 @@ const userController = {
       const success = await userService.verify(key);
       res.status(200).json({
         success: true,
-        message: "Account confirmed successful"
+        message: "Account confirmed successful.Go to due-cash and login now."
       })
     } catch (error) {
       res.status(error?.status || 500).json({
