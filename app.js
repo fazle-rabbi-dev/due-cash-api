@@ -9,7 +9,7 @@ const customerRoutes = require("./routes/customerRoutes");
 // Change origin
 app.use(
   cors({
-    origin: "http://localhost:5173"
+    origin: "https://due-cash.vercel.app"
     // credentials: true,
   })
 );
