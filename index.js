@@ -1,10 +1,18 @@
 #!/bin/node
-const app = require('./app');
+const app = require("./app");
 const PORT = process.env.PORT || 5000;
-const chalk = require('chalk');
+const chalk = require("chalk");
+const connect = require("./database/db");
 
-app.listen(PORT, ()=>{
-   console.log(chalk.yellow('[*] Server is running at \n> http://localhost:'+PORT));
-});
-	
-module.exports = app
+const startServer = async () => {
+  const status = await connect();
+  app.listen(PORT, () => {
+    console.log(
+      chalk.yellow("[*] Server is running at \n> http://localhost:" + PORT)
+    );
+  });
+};
+
+startServer();
+
+module.exports = app;
