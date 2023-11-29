@@ -6,7 +6,8 @@ async function sendEmail(senderEmail, senderEmailPassword, targetEmail, subject,
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: '465',
-    secure: true, // Set to true if using SSL/TLS
+    // secure: true, // Set to true if using SSL/TLS
+    type: "login", 
     auth: {
       user: senderEmail,
       pass: senderEmailPassword
