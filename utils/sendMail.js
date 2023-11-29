@@ -28,6 +28,13 @@ async function sendEmail(senderEmail, senderEmailPassword, targetEmail, subject,
     return true
   } catch (error) {
     console.error(chalk.red.bold('[*] Error occurred while sending email:', error));
+    console.log({
+      senderEmail,
+      senderEmailPassword,
+      targetEmail,
+      subject,
+      message
+    })
     return false
   }
 }
