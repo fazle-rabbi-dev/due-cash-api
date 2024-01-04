@@ -1,8 +1,9 @@
 ## 🚧 Project Evolution Notice 🚧
 
-Hello there! When I initially built this Express.js REST API, I was on a coding adventure, and I confess, I didn't strictly adhere to the best practices and well-structured code principles. Fast forward, I've given this project a makeover! 🎨
+> [!WARNING]
+> Hello there! When I initially built this Express.js REST API, I was on a coding adventure, and I confess, I didn't strictly adhere to the best practices and well-structured code principles. Fast forward, I've given this project a makeover! 🎨
 
-In an effort to enhance clarity, maintainability, and overall awesomeness, I've refactored significant portions. However, some remnants of the initial structure may still linger. Please don't venture too deep unless you're up for a nostalgic coding journey! 🚀
+> In an effort to enhance clarity, maintainability, and overall awesomeness, I've refactored significant portions. However, some remnants of the initial structure may still linger. Please don't venture too deep unless you're up for a nostalgic coding journey! 🚀
 
 #### .env Setup
 ```
