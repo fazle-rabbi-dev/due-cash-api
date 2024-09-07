@@ -1,5 +1,5 @@
 const User = require("../models/UserModel");
-const { emailValidate } = require(`../utils/index.js`);
+const { validateEmail } = require(`../utils/index.js`);
 const userService = require("../services/userService.js");
 
 const userController = {
@@ -18,7 +18,7 @@ const userController = {
 
     try {
       // Validate email address
-      if (!emailValidate(email)) {
+      if (!validateEmail(email)) {
         res.status(500).json({
           message: "Unsupported email format"
         });
