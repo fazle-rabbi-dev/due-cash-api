@@ -1,6 +1,6 @@
 const User = require("../models/UserModel");
-const emailValidate = require(`../utils/emailValidate`);
-const userService = require("../services/userService");
+const emailValidate = require(`../utils/index.js`);
+const userService = require("../services/userService.js");
 
 const userController = {
   async createNewUser(req, res) {

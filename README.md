@@ -1,8 +1,8 @@
 # Due-Cash-Api
 
-This REST api is created for `Due-Cash` react app.
+This REST api is created for [Due-Cash](https://due-cash.vercel.app) react app.
 
-> This api is deployed on [https://www.cyclic.sh](https://www.cyclic.sh/)
+> This api is deployed on [Vercel](https://vercel.com)
 
 > [!WARNING]
 > 👋 Hello there! When I initially built this Express.js REST API, I was on a coding adventure, and I confess, I didn't strictly adhere to the best practices and well-structured code principles. Fast forward, I've given this project a makeover! 🎨
@@ -12,18 +12,13 @@ This REST api is created for `Due-Cash` react app.
 ### Project Created at
 - 🗓 *Sept 2023*
 
+### Last Time Code Refactored at
+- 🗓 *Sept 2024*
+
 ### Live Demo 🎉
 
-- Explore the live version of `Due-Cash React app` [here](https://due-cash.vercel.app).
-- Api Url: [https://due-cash-api.cyclic.app](https://due-cash-api.cyclic.app/)
-
+- Explore the live version of `Due-Cash App` [here](https://due-cash.vercel.app).
+- Explore the FrontEnd code of `Due-Cash App` [here](https://github.com/fazle-rabbi-dev/due-cash/).
 
 ### .env Setup
-```
-PORT=3000
-DB_URI=<your mongodb uri>
-EMAIL_USER=<email username for send confirmation mail>
-EMAIL_PASS=<email password for send confirmation mail>
-SECRET_KEY=<required to sign jwt token>
-CLIENT_URL=<required to generate confirmation link to send with email>
-```
+- Read `.env.sample`

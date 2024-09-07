@@ -1,31 +1,15 @@
 const router = require("express").Router();
-const createCustomerRecord = require("./create/create-customer-record");
-const createBoughtRecord = require("./create/create-bought-record");
-const getCustomersRecord = require("./read/get-customers");
-const getCustomerDetails = require("./read/get-customer-details");
-const updateCustomerRecord = require("./update/update-customer-record");
-const updateBoughtRecord = require("./update/update-bought-record");
-const deleteCustomerRecord = require("./delete/delete-customer-record");
-const deleteBoughtRecord = require("./delete/delete-bought-record");
+const customerController = require("../controllers/customerController.js");
 
-router.get("/customer-route", (req,res) => {
-  res.send('Customer Route Working')
-})
+// customers
+router.use("/create-customer-record", customerController.createCustomer);
+router.use("/get-customers", customerController.getCustomers);
+router.use("/get-customer-details", customerController.getCustomerDetails);
+router.use("/update-customer-record", customerController.updateCustomer);
+router.use("/delete-customer-record", customerController.deleteCustomer);
 
-// Create
-router.use(createCustomerRecord)
-router.use(createBoughtRecord)
-
-// Read
-router.use(getCustomersRecord)
-router.use(getCustomerDetails)
-
-// Update
-router.use(updateCustomerRecord)
-router.use(updateBoughtRecord)
-
-// Delete
-router.use(deleteCustomerRecord)
-router.use(deleteBoughtRecord)
+router.use("/create-bought-record", customerController.createBoughtRecord);
+router.use("/update-bought-record", customerController.updateBoughtRecord);
+router.use("/delete-bought-record", customerController.deleteBoughtRecord);
 
 module.exports = router;

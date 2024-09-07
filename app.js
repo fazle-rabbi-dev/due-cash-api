@@ -3,20 +3,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const chalk = require("chalk");
+
 const userRoutes = require("./routes/userRoutes");
 const customerRoutes = require("./routes/customerRoutes");
+
 
 // Change origin
 app.use(
   cors({
-    origin: "https://due-cash.vercel.app"
-    // credentials: true,
+    origin: "https://due-cash.vercel.app",
+    credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(userRoutes);
+app.use("/auth", userRoutes);
 app.use(customerRoutes);
 
 app.get("/", (req, res) => {

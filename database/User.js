@@ -1,11 +1,13 @@
 const User = require("../models/UserModel");
 const CryptoJS = require("crypto-js");
 const crypto = require("crypto");
-const secretKey = process.env.SECRET_KEY;
+const jwt = require("jsonwebtoken");
+const { sendEmail }= require("../utils/index.js");
+
+const SECRET_KEY = process.env.SECRET_KEY;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-const sendEmail = require("../utils/sendMail");
-const jwt = require("jsonwebtoken");
+
 
 function generateVerificationToken() {
   return crypto.randomBytes(32).toString("hex");
@@ -36,10 +38,10 @@ const dbOperation = {
     // Encrypt password
     const encryptedPassword = CryptoJS.AES.encrypt(
       newUser.password,
-      secretKey
+      SECRET_KEY
     ).toString();
 
-    const authtoken = jwt.sign({ username }, secretKey);
+    const authtoken = jwt.sign({ username }, SECRET_KEY);
 
     // Send confirmation email
     const verificationToken = generateVerificationToken();
@@ -95,7 +97,7 @@ const dbOperation = {
     }
 
     // Decrypt password
-    const bytes = CryptoJS.AES.decrypt(user.password, secretKey);
+    const bytes = CryptoJS.AES.decrypt(user.password, SECRET_KEY);
     const plainPassword = bytes.toString(CryptoJS.enc.Utf8);
 
     if (plainPassword === credentials.password) {
@@ -103,7 +105,7 @@ const dbOperation = {
         {
           username: user.username
         },
-        secretKey
+        SECRET_KEY
       );
 
       const update = { $push: { tokens: token } };
@@ -124,7 +126,7 @@ const dbOperation = {
   },
 
   async logout(token,all) {
-    const { username } = jwt.verify(token, secretKey);
+    const { username } = jwt.verify(token, SECRET_KEY);
     const user = await User.findOne({ username });
     
     if (all) {
@@ -179,7 +181,7 @@ const dbOperation = {
   },
 
   async loginStatus(token) {
-    const { username } = jwt.verify(token, secretKey);
+    const { username } = jwt.verify(token, SECRET_KEY);
     const user = await User.findOne({ username });
     if (user.tokens.includes(token)) {
       return true;
