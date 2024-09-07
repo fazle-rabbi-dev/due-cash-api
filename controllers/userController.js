@@ -1,5 +1,5 @@
 const User = require("../models/UserModel");
-const emailValidate = require(`../utils/index.js`);
+const { emailValidate } = require(`../utils/index.js`);
 const userService = require("../services/userService.js");
 
 const userController = {
