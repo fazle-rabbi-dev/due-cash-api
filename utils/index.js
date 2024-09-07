@@ -60,7 +60,7 @@ const sendEmail = async (
 
 const connect = async () => {
   try {
-    const status = await mongoose.connect(URI);
+    const status = await mongoose.connect(`${URI}/due-cash`);
     console.log("Connected to db");
     return status;
   } catch (e) {
